@@ -6,8 +6,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: ghcr.io/graalvm/graalvm-ce:latest
     steps:
     - uses: actions/checkout@v2
     - name: Build
       run: |
-        bash build.sh
+        mvn install
