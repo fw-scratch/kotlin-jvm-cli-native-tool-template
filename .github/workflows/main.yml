@@ -6,8 +6,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: ghcr.io/graalvm/graalvm-ce:java11-21.2
     steps:
     - uses: actions/checkout@v2
+    - run: gu install native-image
     - name: Build
       run: |
-        bash build.sh
+        ./mvnw package
+    - run: ./target/kt-example
+    - run: ./target/kt-example EUR
