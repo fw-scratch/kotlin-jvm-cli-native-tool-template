@@ -12,4 +12,6 @@ jobs:
     - run: gu install native-image
     - name: Build
       run: |
-        ./mvnw install
+        ./mvnw package
+    - run: ./target/kt-example
+    - run: ./target/kt-example EUR
