@@ -9,6 +9,7 @@ jobs:
     container: ghcr.io/graalvm/graalvm-ce:latest
     steps:
     - uses: actions/checkout@v2
+    - run: gu install native-image
     - name: Build
       run: |
         ./mvnw install
